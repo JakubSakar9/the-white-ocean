@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bir08c8tt10vu"]
+
+[ext_resource type="Script" path="res://entities/pole/pole.gd" id="1_bult6"]
+[ext_resource type="AudioStream" uid="uid://clcwgyebunvln" path="res://assets/sfx/pole_beep.ogg" id="3_1m183"]
+[ext_resource type="PackedScene" uid="uid://b04jb8xtmwfo1" path="res://assets/models/pole.glb" id="4_0raq0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8tfxv"]
+height = 6.15955
+radius = 0.241207
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dj4ij"]
+
+[node name="Pole" type="StaticBody3D"]
+script = ExtResource("1_bult6")
+warming_range = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6197, 0)
+shape = SubResource("CylinderShape3D_8tfxv")
+
+[node name="PoleAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_1m183")
+volume_db = -15.0
+bus = &"Drones"
+
+[node name="BeepTimer" type="Timer" parent="PoleAudio"]
+unique_name_in_owner = true
+autostart = true
+
+[node name="WarmingArea" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WarmingArea"]
+shape = SubResource("SphereShape3D_dj4ij")
+
+[node name="pole" parent="." instance=ExtResource("4_0raq0")]
+
+[connection signal="timeout" from="PoleAudio/BeepTimer" to="." method="_on_beep_timer_timeout"]
+[connection signal="body_entered" from="WarmingArea" to="." method="_on_warming_area_body_entered"]
+[connection signal="body_exited" from="WarmingArea" to="." method="_on_warming_area_body_exited"]

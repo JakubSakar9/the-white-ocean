@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbn7dd5dhyacd"]
+
+[ext_resource type="PackedScene" uid="uid://b8io6kcyqd0f1" path="res://assets/models/rock_snowed02.glb" id="1_dd5nj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q6djj"]
+size = Vector3(0.325073, 0.34668, 0.338989)
+
+[node name="RockSnowed2" type="StaticBody3D"]
+
+[node name="rock_snowed02" parent="." instance=ExtResource("1_dd5nj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010376, 0.16748, 0.0137329)
+shape = SubResource("BoxShape3D_q6djj")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq30r5u0h2sit"]
+
+[ext_resource type="QuadMesh" uid="uid://blkybr0yj2sri" path="res://common/particles/snow/snow_particle_mesh.tres" id="1_gsxma"]
+[ext_resource type="Material" uid="uid://1pls78hqstll" path="res://common/particles/snow/snow_particle_process_material.tres" id="1_ogyra"]
+
+[node name="SnowParticleGenerator" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44532, 0)
+amount = 500
+lifetime = 4.0
+process_material = ExtResource("1_ogyra")
+draw_pass_1 = ExtResource("1_gsxma")

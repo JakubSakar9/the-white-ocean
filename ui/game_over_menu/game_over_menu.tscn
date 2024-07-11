@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://ke4mita1jqdj"]
+
+[ext_resource type="Script" path="res://ui/game_over_menu/game_over_menu.gd" id="1_umasp"]
+[ext_resource type="FontFile" uid="uid://b524obmkjxuvd" path="res://assets/fonts/pasta/TjfPastaRegular-3lRDz.ttf" id="2_fbnyj"]
+[ext_resource type="LabelSettings" uid="uid://cadmwst5q0t1d" path="res://ui/label_settings/menu_item.tres" id="2_vjgvs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4n8m7"]
+font = ExtResource("2_fbnyj")
+font_size = 72
+font_color = Color(0.666667, 0.784314, 1, 1)
+shadow_size = 6
+shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.8)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_umasp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.498039, 0.498039, 0.498039, 0.498039)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -65.5
+offset_right = 376.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_4n8m7")
+horizontal_alignment = 1
+
+[node name="Spacing" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="RetryLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+text = "Try again"
+label_settings = ExtResource("2_vjgvs")
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="VBoxContainer/RetryLabel" to="." method="_on_retry_label_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/RetryLabel" to="." method="_on_retry_label_mouse_exited"]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://c736vffm47suj"]
+
+[ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_xkmgc"]
+[ext_resource type="Texture2D" uid="uid://08wpsrdwt4pt" path="res://assets/other/menu_background.png" id="2_38kui"]
+[ext_resource type="LabelSettings" uid="uid://cb7nxad8tyd7k" path="res://ui/label_settings/title.tres" id="2_e4dul"]
+[ext_resource type="PackedScene" uid="uid://dcvtt1cb2kn3w" path="res://levels/test_level2/test_level2.tscn" id="2_qpa2s"]
+[ext_resource type="LabelSettings" uid="uid://cywxr72rg6c6f" path="res://ui/label_settings/subtitle.tres" id="3_a0k6x"]
+[ext_resource type="LabelSettings" uid="uid://cadmwst5q0t1d" path="res://ui/label_settings/menu_item.tres" id="4_u5n1d"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_xkmgc")
+initial_scene = ExtResource("2_qpa2s")
+
+[node name="MenuBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_38kui")
+
+[node name="UIMargin" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIMargin"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="UIMargin/VBoxContainer"]
+layout_mode = 2
+text = "The White Ocean"
+label_settings = ExtResource("2_e4dul")
+
+[node name="SubtitleContainer" type="HBoxContainer" parent="UIMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="SubtitleOffset" type="Control" parent="UIMargin/VBoxContainer/SubtitleContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="GameSubtitle" type="Label" parent="UIMargin/VBoxContainer/SubtitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Gameplay Test
+"
+label_settings = ExtResource("3_a0k6x")
+
+[node name="MenuItemsVOffset" type="Control" parent="UIMargin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="MenuItems" type="HBoxContainer" parent="UIMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuItemsHOffset" type="Control" parent="UIMargin/VBoxContainer/MenuItems"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIMargin/VBoxContainer/MenuItems"]
+layout_mode = 2
+
+[node name="PlayLabel" type="Label" parent="UIMargin/VBoxContainer/MenuItems/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+text = "Play"
+label_settings = ExtResource("4_u5n1d")
+
+[node name="Spacing" type="Control" parent="UIMargin/VBoxContainer/MenuItems/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="ExitLabel" type="Label" parent="UIMargin/VBoxContainer/MenuItems/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+text = "Exit"
+label_settings = ExtResource("4_u5n1d")
+
+[connection signal="mouse_entered" from="UIMargin/VBoxContainer/MenuItems/VBoxContainer/PlayLabel" to="." method="_on_play_label_mouse_entered"]
+[connection signal="mouse_exited" from="UIMargin/VBoxContainer/MenuItems/VBoxContainer/PlayLabel" to="." method="_on_play_label_mouse_exited"]
+[connection signal="mouse_entered" from="UIMargin/VBoxContainer/MenuItems/VBoxContainer/ExitLabel" to="." method="_on_exit_label_mouse_entered"]
+[connection signal="mouse_exited" from="UIMargin/VBoxContainer/MenuItems/VBoxContainer/ExitLabel" to="." method="_on_exit_label_mouse_exited"]

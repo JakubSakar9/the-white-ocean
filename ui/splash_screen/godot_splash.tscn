@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvxdbx15w3c61"]
+
+[ext_resource type="Texture2D" uid="uid://drop0l4h7g61q" path="res://assets/vector/logo_vertical_color_light.svg" id="1_fbxcr"]
+[ext_resource type="Script" path="res://ui/splash_screen/splash_screen.gd" id="1_yj5a7"]
+
+[node name="GodotSplash" type="BoxContainer"]
+custom_minimum_size = Vector2(400, 400)
+offset_right = 624.0
+script = ExtResource("1_yj5a7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_fbxcr")
+expand_mode = 2
+stretch_mode = 5

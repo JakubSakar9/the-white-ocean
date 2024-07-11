@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bir08c8tt10vu"]
+
+[ext_resource type="Script" path="res://entities/pole/pole.gd" id="1_bult6"]
+[ext_resource type="Material" uid="uid://droqpx5ytvdlo" path="res://materials/pole_mat.tres" id="2_ey1kd"]
+[ext_resource type="AudioStream" uid="uid://clcwgyebunvln" path="res://assets/sfx/pole_beep.ogg" id="3_1m183"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4pees"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8tfxv"]
+height = 6.15955
+radius = 0.241207
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dj4ij"]
+
+[node name="Pole" type="StaticBody3D"]
+script = ExtResource("1_bult6")
+
+[node name="PoleMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.265738, 0, 0, 0, 2.90922, 0, 0, 0, 0.265738, 0, 2.75, 0)
+mesh = SubResource("CylinderMesh_4pees")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_ey1kd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6197, 0)
+shape = SubResource("CylinderShape3D_8tfxv")
+
+[node name="PoleAudio" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_1m183")
+volume_db = -15.0
+autoplay = true
+bus = &"Drones"
+
+[node name="BeepTimer" type="Timer" parent="PoleAudio"]
+unique_name_in_owner = true
+
+[node name="WarmingArea" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WarmingArea"]
+shape = SubResource("SphereShape3D_dj4ij")
+
+[connection signal="timeout" from="PoleAudio/BeepTimer" to="." method="_on_beep_timer_timeout"]
+[connection signal="body_entered" from="WarmingArea" to="." method="_on_warming_area_body_entered"]
+[connection signal="body_exited" from="WarmingArea" to="." method="_on_warming_area_body_exited"]

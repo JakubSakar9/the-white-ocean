@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfi2uwfuvbq6n"]
+
+[ext_resource type="Script" path="res://ui/gameplay_overlay/gameplay_overlay.gd" id="1_60n6e"]
+[ext_resource type="LabelSettings" uid="uid://bpjcos7esy2sr" path="res://ui/label_settings/info_label.tres" id="2_ipuj0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u53vn"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5t0g7"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameplayOverlay" type="CanvasLayer"]
+script = ExtResource("1_60n6e")
+
+[node name="OverlayControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DebugLabels" type="VBoxContainer" parent="OverlayControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FPSLabel" type="Label" parent="OverlayControl/DebugLabels"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_u53vn")
+
+[node name="BodyTempLabel" type="Label" parent="OverlayControl/DebugLabels"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_5t0g7")
+
+[node name="InfoContainer" type="Control" parent="OverlayControl"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InfoLabel" type="Label" parent="OverlayControl/InfoContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("2_ipuj0")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="InfoTimer" type="Timer" parent="OverlayControl/InfoContainer"]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="OverlayControl/InfoContainer/InfoTimer" to="." method="_on_info_timer_timeout"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://v700sr6wd82p"]
+
+[ext_resource type="Material" uid="uid://ce8rcmq3us5nb" path="res://materials/sky1_mat.tres" id="1_dqbcr"]
+[ext_resource type="Script" path="res://common/world_environment/world_environment.gd" id="2_l17av"]
+[ext_resource type="AudioStream" uid="uid://bgbg558kuw7eg" path="res://assets/sfx/wind.ogg" id="3_83cvo"]
+
+[sub_resource type="Sky" id="Sky_rlfrd"]
+sky_material = ExtResource("1_dqbcr")
+
+[sub_resource type="Environment" id="Environment_2tf1p"]
+background_mode = 2
+sky = SubResource("Sky_rlfrd")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.808998, 0.808998, 0.808998, 1)
+fog_density = 0.15
+fog_aerial_perspective = 0.119
+volumetric_fog_emission = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" groups=["environment"]]
+environment = SubResource("Environment_2tf1p")
+script = ExtResource("2_l17av")
+
+[node name="WindPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_83cvo")
+autoplay = true
+bus = &"Wind"

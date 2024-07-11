@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccgu73w5l7tml"]
+
+[ext_resource type="Script" path="res://ui/splash_screen/splash_screen_manager.gd" id="1_8c384"]
+[ext_resource type="PackedScene" uid="uid://c736vffm47suj" path="res://ui/main_menu/main_menu.tscn" id="2_bjl74"]
+[ext_resource type="PackedScene" uid="uid://bvxdbx15w3c61" path="res://ui/splash_screen/godot_splash.tscn" id="2_xs6o5"]
+[ext_resource type="PackedScene" uid="uid://6km131ikesy4" path="res://ui/splash_screen/headphones_splash.tscn" id="3_sw110"]
+
+[node name="SpashScreenManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8c384")
+initial_scene = ExtResource("2_bjl74")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SplashScreenContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GodotSplash" parent="SplashScreenContainer" instance=ExtResource("2_xs6o5")]
+layout_mode = 2
+
+[node name="HeadphonesSplash" parent="SplashScreenContainer" instance=ExtResource("3_sw110")]
+layout_mode = 2

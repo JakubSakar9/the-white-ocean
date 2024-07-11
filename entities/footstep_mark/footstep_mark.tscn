@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyvkhjksy2y7w"]
+
+[ext_resource type="Texture2D" uid="uid://bykbjwuvpo4ox" path="res://assets/vector/footstep.svg" id="1_43iea"]
+[ext_resource type="Script" path="res://entities/footstep_mark/footstep_mark.gd" id="2_1g0sr"]
+
+[node name="FootstepMark" type="Node3D"]
+script = ExtResource("2_1g0sr")
+
+[node name="FootstepSprite" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.1, -8.74228e-09, 3.82137e-16, 0, -4.37114e-09, -0.1, 8.74228e-09, -0.1, 4.37114e-09, 0, 0.1, 0)
+sorting_offset = 1.0
+ignore_occlusion_culling = true
+texture = ExtResource("1_43iea")
+script = ExtResource("2_1g0sr")

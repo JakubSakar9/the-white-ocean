@@ -1,0 +1,7 @@
+[gd_resource type="Terrain3DTexture" load_steps=2 format=3 uid="uid://8fdul4hf4d5d"]
+
+[ext_resource type="Texture2D" uid="uid://ctkwp82eox3dt" path="res://assets/textures/ground_seamless.png" id="1_sjt6n"]
+
+[resource]
+name = "Snow"
+albedo_texture = ExtResource("1_sjt6n")

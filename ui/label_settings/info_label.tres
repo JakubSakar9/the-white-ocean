@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bpjcos7esy2sr"]
+
+[ext_resource type="FontFile" uid="uid://b524obmkjxuvd" path="res://assets/fonts/pasta/TjfPastaRegular-3lRDz.ttf" id="1_207mn"]
+
+[resource]
+font = ExtResource("1_207mn")
+font_size = 24
+shadow_size = 2
+shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.8)

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://babp5s612a7tu"]
+
+[ext_resource type="Texture2D" uid="uid://bphs6t8kfxjwb" path="res://assets/textures/snow_particle_texture.png" id="1_c3ui3"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_c3ui3")
+billboard_mode = 1

@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://chpqpru4at4pi"]
+
+[ext_resource type="Script" path="res://entities/player/footstep_generator.gd" id="1_le76u"]
+[ext_resource type="PackedScene" uid="uid://cyvkhjksy2y7w" path="res://entities/footstep_mark/footstep_mark.tscn" id="2_13fsu"]
+[ext_resource type="AudioStream" uid="uid://bowlikvauv0il" path="res://assets/sfx/footstep_1.ogg" id="3_akh6q"]
+[ext_resource type="AudioStream" uid="uid://b5r0q3qss0747" path="res://assets/sfx/footstep_2.ogg" id="4_vkycu"]
+[ext_resource type="AudioStream" uid="uid://c57squ43vbube" path="res://assets/sfx/footstep_3.ogg" id="5_rgnoo"]
+[ext_resource type="AudioStream" uid="uid://cr6fcrdvi1c3r" path="res://assets/sfx/footstep_4.ogg" id="6_atb6b"]
+[ext_resource type="AudioStream" uid="uid://cs544575rbejy" path="res://assets/sfx/footstep_5.ogg" id="7_r7hjv"]
+[ext_resource type="AudioStream" uid="uid://br50abcgvdx2a" path="res://assets/sfx/footstep_6.ogg" id="8_2fwio"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kr2yl"]
+streams_count = 6
+stream_0/stream = ExtResource("3_akh6q")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_vkycu")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_rgnoo")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_atb6b")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_r7hjv")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("8_2fwio")
+stream_5/weight = 1.0
+
+[node name="FootstepGenerator" type="Node3D"]
+script = ExtResource("1_le76u")
+footstep_scene = ExtResource("2_13fsu")
+
+[node name="FootstepTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_kr2yl")
+max_polyphony = 2
+bus = &"PlayerSounds"
+
+[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]
