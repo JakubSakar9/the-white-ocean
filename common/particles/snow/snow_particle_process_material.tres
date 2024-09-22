@@ -3,5 +3,14 @@
 [resource]
 emission_shape_scale = Vector3(10, 10, 10)
 emission_shape = 1
-emission_sphere_radius = 1.0
-turbulence_enabled = true
+emission_sphere_radius = 2.0
+direction = Vector3(1, -1, 0)
+spread = 10.0
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+damping_min = 0.5
+damping_max = 0.5
+attractor_interaction_enabled = false
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0

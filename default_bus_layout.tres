@@ -1,7 +1,17 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://coco8qwo52ym7"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://coco8qwo52ym7"]
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_lckit"]
+resource_name = "Amplify"
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_eule7"]
+resource_name = "LowPassFilter"
+cutoff_hz = 600.0
 
 [resource]
-bus/1/name = &"Drones"
+bus/0/volume_db = -0.130497
+bus/0/effect/0/effect = SubResource("AudioEffectAmplify_lckit")
+bus/0/effect/0/enabled = true
+bus/1/name = &"Sonar"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
@@ -13,9 +23,17 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectLowPassFilter_eule7")
+bus/2/effect/0/enabled = true
 bus/3/name = &"PlayerSounds"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
+bus/4/name = &"Fire"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Master"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://casvbfppwnhal"]
+
+[ext_resource type="Environment" uid="uid://ro7oywa6pil3" path="res://common/shelter_environment/shelter_environment.tres" id="1_6xxga"]
+[ext_resource type="AudioStream" uid="uid://bgbg558kuw7eg" path="res://assets/sfx/wind.ogg" id="2_ue0rj"]
+
+[node name="ShelterEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_6xxga")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ue0rj")
+autoplay = true
+bus = &"Wind"
+parameters/looping = true

@@ -6,6 +6,7 @@
 size = Vector3(0.709229, 0.625, 0.744629)
 
 [node name="RockSnowed1" type="StaticBody3D"]
+collision_layer = 2
 
 [node name="rock_snowed01" parent="." instance=ExtResource("1_gdkva")]
 

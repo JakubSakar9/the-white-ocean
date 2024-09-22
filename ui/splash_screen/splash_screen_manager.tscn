@@ -37,3 +37,4 @@ layout_mode = 2
 
 [node name="HeadphonesSplash" parent="SplashScreenContainer" instance=ExtResource("3_sw110")]
 layout_mode = 2
+final = true

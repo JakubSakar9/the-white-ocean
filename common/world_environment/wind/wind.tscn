@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://tjjnasojykso"]
+
+[ext_resource type="Script" path="res://common/world_environment/wind/wind.gd" id="1_1tnbq"]
+[ext_resource type="AudioStream" uid="uid://bgbg558kuw7eg" path="res://assets/sfx/wind.ogg" id="2_fcium"]
+
+[node name="Wind" type="Node" groups=["wind"]]
+script = ExtResource("1_1tnbq")
+speed = 8.0
+
+[node name="WindPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_fcium")
+autoplay = true
+bus = &"Wind"

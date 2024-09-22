@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://4sv4bdgk0215"]
+
+[ext_resource type="PackedScene" uid="uid://p4ccu4q68pt8" path="res://entities/buildings/shelter_mesh.tscn" id="1_06c65"]
+[ext_resource type="PackedScene" uid="uid://donft7if41o20" path="res://entities/player/player.tscn" id="2_fqll2"]
+[ext_resource type="PackedScene" uid="uid://casvbfppwnhal" path="res://common/shelter_environment/shelter_environment.tscn" id="4_kewo3"]
+[ext_resource type="PackedScene" uid="uid://fl7r2rjywe4f" path="res://entities/decoration/chair.tscn" id="4_x8hch"]
+[ext_resource type="PackedScene" uid="uid://c58uq0g84b4kr" path="res://entities/decoration/table.tscn" id="5_uwa78"]
+[ext_resource type="Script" path="res://levels/shelter/shelter_exit_area.gd" id="6_3vhh3"]
+[ext_resource type="PackedScene" uid="uid://d3hj2vjscwktn" path="res://entities/fireplace/fireplace.tscn" id="7_21n13"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2b4u7"]
+size = Vector3(0.112732, 1.97961, 0.935486)
+
+[node name="Shelter" type="Node3D"]
+
+[node name="ShelterMesh" parent="." instance=ExtResource("1_06c65")]
+collision_layer = 6
+
+[node name="Player" parent="." instance=ExtResource("2_fqll2")]
+transform = Transform3D(0.00811572, 0, 0.999967, 0, 1, 0, -0.999967, 0, 0.00811572, 1.43818, 0, 1.63151)
+
+[node name="ShelterEnvironment" parent="." instance=ExtResource("4_kewo3")]
+
+[node name="Chair" parent="." instance=ExtResource("4_x8hch")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.49447, 0, 1.59848)
+
+[node name="Table" parent="." instance=ExtResource("5_uwa78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46845, -1.19209e-07, 2.31517)
+
+[node name="ShelterExitArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02276, 1.09507, 1.60939)
+collision_layer = 8
+script = ExtResource("6_3vhh3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShelterExitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134437, -0.0541337, -0.00258708)
+shape = SubResource("BoxShape3D_2b4u7")
+
+[node name="Fireplace" parent="." instance=ExtResource("7_21n13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)

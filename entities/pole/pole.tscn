@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bir08c8tt10vu"]
+[gd_scene load_steps=8 format=4 uid="uid://bir08c8tt10vu"]
 
 [ext_resource type="Script" path="res://entities/pole/pole.gd" id="1_bult6"]
 [ext_resource type="AudioStream" uid="uid://clcwgyebunvln" path="res://assets/sfx/pole_beep.ogg" id="3_1m183"]
-[ext_resource type="PackedScene" uid="uid://b04jb8xtmwfo1" path="res://assets/models/pole.glb" id="4_0raq0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8tfxv"]
 height = 6.15955
@@ -10,7 +9,45 @@ radius = 0.241207
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dj4ij"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twbf1"]
+resource_name = "Pole"
+cull_mode = 2
+albedo_color = Color(0.587508, 0.557185, 0.498879, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_llxpu"]
+_surfaces = [{
+"aabb": AABB(-0.0475528, -2, -0.05, 0.0951056, 4, 0.0904509),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAFAAMAAgAEAAUABAAHAAUABAAGAAcABQABAAMAAQAHAAkAAQAFAAcABgAJAAcABgAIAAkACAABAAkACAAAAAEACAACAAAAAgAGAAQAAgAIAAYA"),
+"name": "Pole",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("/38AAAAAAAD/f///AAAAAP//AADIYQAA/////8hhAAAazwAA//8AABrP/////wAA5DAAAP//AADkMP////8AAAAAAADIYQAAAAD//8hhAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rj47c"]
+resource_name = "pole_Cylinder"
+_surfaces = [{
+"aabb": AABB(-0.0475528, -2, -0.05, 0.0951056, 4, 0.0904509),
+"attribute_data": PackedByteArray("/7+Ogv///38AAP9//z+Ogv//AAAAAAAAbfoCrczM/3/MzP9/bnoCrczMAADMzAAAmZn/fxzks/GZmf9/mZkAABxks/GZmQAAZmb/f+Kbs/FmZv9/ZmYAAOIbs/FmZgAAkIUCrTMz/38zM/9/kQUCrTMzAAAzMwAA"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AQAKAAQAAQAHAAoACAARAAsACAAOABEADAAVAA8ADAASABUAEAADAAkAAwAWABsAAwAQABYAFAAdABcAFAAaAB0AGQAFABwAGQACAAUAGAAGAAAABgATAA0ABgAYABMA"),
+"material": SubResource("StandardMaterial3D_twbf1"),
+"name": "Pole",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("/38AAAAA/z//fwAAAABl5v9/AAAAAGXm/3///wAA/7//f///AABl5v9///8AAGXm//8AAMhh/z///wAAyGFl5v//AADIYTKz/////8hh/7//////yGFl5v/////IYTKzGs8AAP//AIAazwAA////PxrPAAD//zKzGs//////AIAaz///////vxrP/////zKz5DAAAP//AIDkMAAA////P+QwAAD//zKz5DD/////AIDkMP//////v+Qw/////zKzAAAAAMhh/z8AAAAAyGFl5gAAAADIYTKzAAD//8hh/78AAP//yGFl5gAA///IYTKzAAD/f/9/AAD/f///////f/9/AAD/f///AAD/f/9/AAD/fwAA////f/9/AAD/fwAA/3///wAA/3//fwAA/3///////3//fwAA/3///wAA/3//f////3///////3//f///AAD/f/9/////f///////f/9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_llxpu")
+
 [node name="Pole" type="StaticBody3D"]
+collision_layer = 2
 script = ExtResource("1_bult6")
 warming_range = 5.0
 
@@ -22,7 +59,7 @@ shape = SubResource("CylinderShape3D_8tfxv")
 unique_name_in_owner = true
 stream = ExtResource("3_1m183")
 volume_db = -15.0
-bus = &"Drones"
+bus = &"Sonar"
 
 [node name="BeepTimer" type="Timer" parent="PoleAudio"]
 unique_name_in_owner = true
@@ -34,7 +71,10 @@ unique_name_in_owner = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WarmingArea"]
 shape = SubResource("SphereShape3D_dj4ij")
 
-[node name="pole" parent="." instance=ExtResource("4_0raq0")]
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("ArrayMesh_rj47c")
+skeleton = NodePath("")
 
 [connection signal="timeout" from="PoleAudio/BeepTimer" to="." method="_on_beep_timer_timeout"]
 [connection signal="body_entered" from="WarmingArea" to="." method="_on_warming_area_body_entered"]

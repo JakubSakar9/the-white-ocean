@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://bowlikvauv0il"
+uid="uid://tl4fwy17vcgg"
 path="res://.godot/imported/footstep_1.ogg-d8e6e5af94bc249b64269782f685e6d5.oggvorbisstr"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/footstep_1.ogg-d8e6e5af94bc249b64269782f685e6
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

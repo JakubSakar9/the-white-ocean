@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://k351shsaksvy"]
+[gd_scene load_steps=9 format=3 uid="uid://k351shsaksvy"]
 
 [ext_resource type="Material" uid="uid://dr6r1t5lekct2" path="res://materials/snow_mat.tres" id="1_cd7ul"]
 [ext_resource type="PackedScene" uid="uid://donft7if41o20" path="res://entities/player/player.tscn" id="2_5cx1x"]
 [ext_resource type="PackedScene" uid="uid://v700sr6wd82p" path="res://common/world_environment/world_environment.tscn" id="3_lri41"]
 [ext_resource type="PackedScene" uid="uid://bir08c8tt10vu" path="res://entities/pole/pole.tscn" id="5_e8elx"]
+[ext_resource type="PackedScene" uid="uid://7h7wwmfg0j8c" path="res://entities/buildings/shelter_outer.tscn" id="6_3i2q5"]
 [ext_resource type="PackedScene" uid="uid://dtnhopm7jbikn" path="res://entities/message_area/message_area.tscn" id="6_gq83p"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xpwix"]
@@ -15,6 +16,7 @@ size = Vector3(1.9997, 0.0213239, 2.01455)
 
 [node name="Ground3" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 200.236)
+collision_layer = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3"]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.515051, -0.349219, 0.332846)
@@ -99,6 +101,7 @@ shape = SubResource("BoxShape3D_g560r")
 
 [node name="Ground10" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.7352, 0, 198.432)
+collision_layer = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground10"]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.515051, -0.349219, 0.332846)
@@ -111,6 +114,7 @@ shape = SubResource("BoxShape3D_g560r")
 
 [node name="Ground2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100.118)
+collision_layer = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2"]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.515051, -0.349219, 0.332846)
@@ -122,6 +126,7 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -0.522302, 0)
 shape = SubResource("BoxShape3D_g560r")
 
 [node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.515051, -0.349219, 0.332846)
@@ -189,3 +194,6 @@ message = "Congratulations, you made it to the end of the demo"
 [node name="MessageArea4" parent="." instance=ExtResource("6_gq83p")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 11.3655, -0.0461159, 5.7395)
 message = "Follow the poles to get to the end"
+
+[node name="ShelterOuter" parent="." instance=ExtResource("6_3i2q5")]
+transform = Transform3D(0.85811, 0, 0.513466, 0, 1, 0, -0.513466, 0, 0.85811, 3.28196, -0.407268, 6.33207)

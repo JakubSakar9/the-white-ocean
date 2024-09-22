@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=4 uid="uid://d3hj2vjscwktn"]
+
+[ext_resource type="Script" path="res://entities/fireplace/fireplace.gd" id="1_0dk6a"]
+[ext_resource type="PackedScene" uid="uid://d3sxgkgkafseb" path="res://assets/models/firewood.fbx" id="2_ot6w6"]
+[ext_resource type="Material" uid="uid://5x84ncabngw3" path="res://entities/fireplace/fire_particle_process_material.tres" id="3_1xx0e"]
+[ext_resource type="ArrayMesh" uid="uid://bwqhd7bpvbq85" path="res://entities/fireplace/fire_particle_1.tres" id="4_neayi"]
+[ext_resource type="AudioStream" uid="uid://d0tdo47x446v4" path="res://assets/sfx/firewood.mp3" id="5_u3lvr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_766eb"]
+size = Vector3(1.7, 1.356, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_570tt"]
+resource_name = "Firewood"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.523779, 0.33856, 0.113614, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lrwmo"]
+_surfaces = [{
+"aabb": AABB(-0.000380423, -0.000323607, -0.002, 0.000760845, 0.000723607, 0.004),
+"format": 34359742465,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAAAAMAAwAFAAQABgAEAAUABQAHAAYABgAAAAQABgABAAAABgAIAAEACAAGAAcABwAJAAgAAQAIAAkACQACAAEABQACAAkABQADAAIABQAJAAcA"),
+"name": "Firewood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("dnPHOXOcATlvEgM7AAAAABe30TlvEgM7AAAAABe30TlvEgO7dnPHOXOcATlvEgO79oh2OcWpqblvEgM79oh2OcWpqblvEgO79oh2ucWpqblvEgM79oh2ucWpqblvEgO7dnPHuXOcATlvEgM7dnPHuXOcATlvEgO7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ccmqi"]
+resource_name = "Cylinder_001"
+_surfaces = [{
+"aabb": AABB(-0.000380423, -0.000323607, -0.002, 0.000760845, 0.000723607, 0.004),
+"attribute_data": PackedByteArray("zcxMPwAAAAAAAIA/AAAAAAAAgD8AAAA/zcxMPwAAAD+amRk/AAAAAM3MTD8AAAAAzcxMPwAAAD+amRk/AAAAP87MzD4AAAAAmpkZPwAAAACamRk/AAAAP87MzD4AAAA/gBffPb20cT+n3fQ+lQMtPyA6yD69tHE/AACAPlyPAj+QJbI8lQMtP8/MTD4AAAAAzszMPgAAAADOzMw+AAAAP8/MTD4AAAA/AAAAMwAAAADPzEw+AAAAAM/MTD4AAAA/AAAAMwAAAD8QHWQ/vbRxPwAAQD9cjwI/LJEFP5UDLT/Ubno/lQMtP/DiGz+9tHE/"),
+"format": 34359742487,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADAAPAA0ADAAQAA8AEQASABMAEwAUABEAFQAWABcAFwAYABUAGQAaABsAGQAcABoAGQAbAB0A"),
+"material": SubResource("StandardMaterial3D_570tt"),
+"name": "Firewood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("dnPHOXOcATlvEgM7AAAAABe30TlvEgM7AAAAABe30TlvEgO7dnPHOXOcATlvEgO79oh2OcWpqblvEgM7dnPHOXOcATlvEgM7dnPHOXOcATlvEgO79oh2OcWpqblvEgO79oh2ucWpqblvEgM79oh2OcWpqblvEgM79oh2OcWpqblvEgO79oh2ucWpqblvEgO79oh2ucWpqblvEgM7dnPHOXOcATlvEgM79oh2OcWpqblvEgM7AAAAABe30TlvEgM7dnPHuXOcATlvEgM7dnPHuXOcATlvEgM79oh2ucWpqblvEgM79oh2ucWpqblvEgO7dnPHuXOcATlvEgO7AAAAABe30TlvEgM7dnPHuXOcATlvEgM7dnPHuXOcATlvEgO7AAAAABe30TlvEgO79oh2OcWpqblvEgO7AAAAABe30TlvEgO7dnPHuXOcATlvEgO7dnPHOXOcATlvEgO79oh2ucWpqblvEgO73LUiytw17drctSLK3DXt2ty1IsrcNe3a3LUiytw17dqb4JtgY59N8Jvgm2Bjn03wm+CbYGOfTfCb4JtgY59N8P9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//3//f/7//7//f/9//v//v/9//3/+//+//3//f/7//7//f/9//v//v2Mfm2Bjn7GPYx+bYGOfsY9jH5tgY5+xj2Mfm2Bjn7GPIkoiytw1EKUiSiLK3DUQpSJKIsrcNRClIkoiytw1EKX/////////P/////////8//////////z//////////P/////////8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lrwmo")
+
+[node name="Fireplace" type="Area3D"]
+collision_layer = 8
+script = ExtResource("1_0dk6a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.677795, 0)
+shape = SubResource("BoxShape3D_766eb")
+
+[node name="FireWood" parent="." instance=ExtResource("2_ot6w6")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Log1" parent="FireWood" index="0"]
+layers = 4
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_ccmqi")
+
+[node name="Log2" parent="FireWood" index="1"]
+layers = 4
+cast_shadow = 0
+
+[node name="Log3" parent="FireWood" index="2"]
+layers = 4
+cast_shadow = 0
+
+[node name="FireLight" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165044, 0.0196845)
+light_color = Color(0.959995, 0.619781, 1.15514e-06, 1)
+light_energy = 0.0
+light_cull_mask = 4294967291
+shadow_enabled = true
+shadow_blur = 4.0
+
+[node name="Fire" type="GPUParticles3D" parent="."]
+unique_name_in_owner = true
+amount = 20
+amount_ratio = 0.0
+randomness = 0.3
+process_material = ExtResource("3_1xx0e")
+draw_pass_1 = ExtResource("4_neayi")
+
+[node name="FireSound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_u3lvr")
+unit_size = 4.0
+bus = &"Fire"
+
+[editable path="FireWood"]

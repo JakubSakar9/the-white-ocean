@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfi2uwfuvbq6n"]
+[gd_scene load_steps=6 format=3 uid="uid://dfi2uwfuvbq6n"]
 
 [ext_resource type="Script" path="res://ui/gameplay_overlay/gameplay_overlay.gd" id="1_60n6e"]
 [ext_resource type="LabelSettings" uid="uid://bpjcos7esy2sr" path="res://ui/label_settings/info_label.tres" id="2_ipuj0"]
+[ext_resource type="PackedScene" uid="uid://dv0ovqi1p6fop" path="res://ui/gameplay_overlay/body_temp_bar/body_temp_bar.tscn" id="3_bok74"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u53vn"]
 font_color = Color(0, 0, 0, 1)
@@ -22,19 +23,25 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DebugLabels" type="VBoxContainer" parent="OverlayControl"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 50.0
+grow_horizontal = 0
 
 [node name="FPSLabel" type="Label" parent="OverlayControl/DebugLabels"]
 unique_name_in_owner = true
 layout_mode = 2
 label_settings = SubResource("LabelSettings_u53vn")
+horizontal_alignment = 2
 
 [node name="BodyTempLabel" type="Label" parent="OverlayControl/DebugLabels"]
 unique_name_in_owner = true
 layout_mode = 2
 label_settings = SubResource("LabelSettings_5t0g7")
+horizontal_alignment = 2
 
 [node name="InfoContainer" type="Control" parent="OverlayControl"]
 custom_minimum_size = Vector2(320, 0)
@@ -54,6 +61,8 @@ mouse_filter = 2
 
 [node name="InfoLabel" type="Label" parent="OverlayControl/InfoContainer"]
 unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,7 +73,6 @@ label_settings = ExtResource("2_ipuj0")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="InfoTimer" type="Timer" parent="OverlayControl/InfoContainer"]
+[node name="BodyTempBar" parent="OverlayControl" instance=ExtResource("3_bok74")]
 unique_name_in_owner = true
-
-[connection signal="timeout" from="OverlayControl/InfoContainer/InfoTimer" to="." method="_on_info_timer_timeout"]
+layout_mode = 1

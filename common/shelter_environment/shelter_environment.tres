@@ -1,0 +1,17 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://ro7oywa6pil3"]
+
+[ext_resource type="Material" uid="uid://ce8rcmq3us5nb" path="res://materials/sky1_mat.tres" id="1_15uqh"]
+
+[sub_resource type="Sky" id="Sky_68v07"]
+sky_material = ExtResource("1_15uqh")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_68v07")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.6
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_min_cell_size = 0.214844
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.15

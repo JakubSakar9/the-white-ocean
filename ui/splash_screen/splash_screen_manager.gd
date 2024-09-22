@@ -12,14 +12,14 @@ func _ready() -> void:
 	
 	for splash_screen in splash_screen_container.get_children():
 		splash_screen.hide()
-		splash_screens.push_back(splash_screen)
+		splash_screens.push_back(splash_screen)		
 		
 	start_splash_screen()
 
 
 func start_splash_screen() -> void:
 	if splash_screens.size() == 0:
-		get_tree().change_scene_to_packed(initial_scene)
+		SceneSwitcher.splash_transition()
 	else:
 		var splash_screen: SplashScreen = splash_screens.pop_front()
 		splash_screen.start()

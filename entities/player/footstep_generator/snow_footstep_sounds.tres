@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=7 format=3 uid="uid://cguqgwymlxabr"]
+
+[ext_resource type="AudioStream" uid="uid://bowlikvauv0il" path="res://assets/sfx/footstep_snow_1.ogg" id="1_80u4y"]
+[ext_resource type="AudioStream" uid="uid://b5r0q3qss0747" path="res://assets/sfx/footstep_snow_2.ogg" id="2_66nny"]
+[ext_resource type="AudioStream" uid="uid://c57squ43vbube" path="res://assets/sfx/footstep_snow_3.ogg" id="3_26tti"]
+[ext_resource type="AudioStream" uid="uid://cr6fcrdvi1c3r" path="res://assets/sfx/footstep_snow_4.ogg" id="4_ifm8p"]
+[ext_resource type="AudioStream" uid="uid://cs544575rbejy" path="res://assets/sfx/footstep_snow_5.ogg" id="5_7vbsw"]
+[ext_resource type="AudioStream" uid="uid://br50abcgvdx2a" path="res://assets/sfx/footstep_snow_6.ogg" id="6_38jan"]
+
+[resource]
+streams_count = 6
+stream_0/stream = ExtResource("1_80u4y")
+stream_1/stream = ExtResource("2_66nny")
+stream_2/stream = ExtResource("3_26tti")
+stream_3/stream = ExtResource("4_ifm8p")
+stream_4/stream = ExtResource("5_7vbsw")
+stream_5/stream = ExtResource("6_38jan")
